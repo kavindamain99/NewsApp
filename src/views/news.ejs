@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B News</title>
+    
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    
+
+    <header class="header">
+        <div class="header__logo">Buisness News</div>
+       <form action="/" method="POST">
+        <input type="search" placeholder='Search' name="search">
+        <input type="submit" value="Search" /> 
+       </form>
+       
+    </header>
+
+    <div class="wrapper">
+        <div class="news">
+            <% if(articles != null) { %>
+            <% articles.forEach(function(article, index) { %>
+                <a href="<%- article.url %>" class="card">
+                    <img src="<%- article.urlToImage %>" alt="<%- article.title %>">
+                    <h2><%- article.title %></h2>
+                    <p><%- article.description %></p>
+                </a>
+            <% }) %>
+            <% } else { %>
+                No posts found.
+            <% } %>
+        </div>
+    </div>  
+
+    <div class="footer">
+        <p>B NEWS</p>
+      </div>
+</body>
+</html>
